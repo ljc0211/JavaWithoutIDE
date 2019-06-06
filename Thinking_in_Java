@@ -69,8 +69,8 @@ ExecutorService的shutdown方法用于终止线程（如果不中止它就一直
 
 
 StringBuffer的.append(str)方法代替String的“+”连接，速度更快一些。
-String str = new String("1")创建于堆中，intern()方法会建在字符串常量池里有个记录，而String str1 = "1"优先于字符串常量池中查找对象并返回。内存空间地址。如果常量池中没有，就在堆中生成对象，同时在常量池中生成一个引用。
-栈里的对象引用或者字符引用指向堆中的对象或者常量池中的常量
+String str = new String("1")创建于堆中，intern()方法会建在字符串常量池里有个记录，而String str1 = "1"优先于字符串常量池中查找对象并返回。内存空间地址。如果常量池中没有，就在堆中生成对象，同时在常量池中生成一个引用。字符串常量池只存储引用，不存储内容。那么比如String a = "Hello Wolrd"中的Hello Wolrd是保存在堆中的对象里。
+栈里的实例对象引用或者字符引用指向堆中的对象或者常量池中的常量
 
 
 
@@ -102,3 +102,49 @@ super表示调用父类中相应的属性和方法。在方法中，若需要调
 1、每一个类的静态(static)代码块都只会在往JVM中装载时执行且只执行一次！
 2、声明一个继承自父类的子类时，先把父类的构造代码块及构造方法初始化然后初始化子类的构造代码块和构造方法。
 3、构造代码块先于构造方法！
+
+正在播放 《你是魔鬼吗》 ━━━━━━─────── 3:47 ⇆ ◁ ❚❚ ▷ ↻
+
+YGC ：对新生代堆进行gc。频率比较高，因为大部分对象的存活寿命较短，在新生代里被回收。性能耗费较小。
+FGC ：全堆范围的gc。默认堆空间使用到达80%(可调整)的时候会触发fgc。以我们生产环境为例，一般比较少会触发fgc，有时10天或一周左右会有一次。
+什么时候执行YGC和FGC:
+1、a.eden空间不足,执行 young gc
+2、b.old空间不足，perm空间不足，调用方法System.gc() ，ygc时的悲观策略, dump live的内存信息时(jmap –dump:live)，都会执行full gc
+
+正在播放 《你是魔鬼吗》 ━━━━━━─────── 3:47 ⇆ ◁ ❚❚ ▷ ↻
+
+long l_starttime = System.nanoTime();
+long l_endtime = System.nanoTime();
+System.out.println("运行时间为:" + (l_endtime - l_starttime) + "us");
+
+正在播放 《你是魔鬼吗》 ━━━━━━─────── 3:47 ⇆ ◁ ❚❚ ▷ ↻
+
+  排序a数组：
+	public static void sort(Object[] a)
+  a数组二分找key，先排序：
+  	public static int binarySearch(Object[] a, Object key)
+
+    Arrays.sort(t1.nn_exp);
+    System.out.println(Arrays.binarySearch(t1.nn_exp, 44));
+
+    用val填a数组：
+    	public static void fill(int[] a, int val)
+        完全相同比较数组：
+        	public static boolean equals(Object[] a, Object[] a2)
+
+正在播放 《你是魔鬼吗》 ━━━━━━─────── 3:47 ⇆ ◁ ❚❚ ▷ ↻
+
+List<Integer> list_n = new ArrayList<>();
+
+list_n.add(1);
+list_n.add(2);
+
+System.out.println(list_n);
+list_n.clear();
+System.out.println(list_n);
+list_n.add(8);
+list_n.add(8);
+System.out.println(list_n);
+
+
+正在播放 《你是魔鬼吗》 ━━━━━━─────── 3:47 ⇆ ◁ ❚❚ ▷ ↻
